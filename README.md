@@ -10,17 +10,19 @@ This sample application has a authentication module (Login, Logout) and a produc
 ## Technology Stack
 1. J2EE
 2. Java Struts 2
-3. jQuery
-4. Bootstrap
-5. Flexbox
-6. Apache Tomcat-8.0
+3. Handlebar JS
+4. jQuery
+5. Bootstrap
+6. Flexbox
+7. Apache Tomcat-8.0
+8. Web Fonts
 
 ## Depedencies
 ### Browser
 Browser used to develop this application is **Google Chrome** and tested in **Mozilla Firefox** too. This site is broken in IE for now and plans to implement fix soon.
 ### Apache
 This project uses Apache Tomcat-8.0.20 and it can be downloaded from [here](https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.20/ "Apache Tomcat-8.0.20") and is compatible with higher version. Download and extract the file for later use.
-### Struts Depedency
+### Struts and Log4j
 This project uses Struts 2 framework and you can download the binaries from [here](http://struts.apache.org/ "Struts 2")
 Though Struts 2 have many binaries from the distribution package, this sample project uses only the below listed binaries. This project references an *User Library* variable which points to the folder that has only these libraries:
 
