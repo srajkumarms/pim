@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="security" namespace="/" extends="struts-default, json-default">		
+		<action name="login" class="org.att.pim.action.SecurityAction">
+			<result name="success">/views/products.jsp</result>
+			<result name="login">index.jsp</result>
+		</action>
+		<action name="logout" class="org.att.pim.action.SecurityAction" method="logout">
+			<result name="success">index.jsp</result>
+			<result name="input">index.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="products" namespace="/products" extends="struts-default, json-default">		
+		<interceptors>
+			<interceptor-stack name="defaultStack">
+				<interceptor-ref name="json">
+					<param name="enableSMD">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack" />		
+		
+		<action name="getProductList" class="org.att.pim.action.ProductAction" method="getProductList">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">products</param>
+			</result>
+			<result name="login" type="redirect">/index.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="addEditProduct" class="org.att.pim.action.ProductAction" method="addEditProduct">			
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">isAddEditSucceed</param>
+			</result>
+			<result name="login" type="redirect">/index.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+		
+		<action name="deleteProduct" class="org.att.pim.action.ProductAction" method="deleteProduct">
+			<result type="json">
+				<param name="noCache">true</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="root">isDeleted</param>
+			</result>
+			<result name="login" type="redirect">/index.jsp</result>
+			<result name="error" type="redirect">/index.jsp</result>
+		</action>
+	</package>
+</struts>        

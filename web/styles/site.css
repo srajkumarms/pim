@@ -1,0 +1,339 @@
+@font-face {
+    font-family: ATTAleck;
+    src: url('../resources/fonts/AleckATT/AleckSans/ATTAleckSans_W_Rg.woff') format('woff'),
+    	 url('../resources/fonts/AleckATT/AleckSans/ATTAleckSans_W_Rg.eot') format('embedded-opentype'),
+    	 url('../resources/fonts/AleckATT/AleckSans/ATTAleckSans_W_Rg.svg') format('svg'),
+    	 url('../resources/fonts/AleckATT/AleckSans/ATTAleckSans_W_Rg.ttf') format('truetype');
+}
+
+* {
+	margin: 0;
+}
+
+html, 
+body,
+button {
+	color: #333;
+	font-family: ATTAleck;	
+}
+
+
+button {
+	font-size: 14px;
+	height: 32px;	
+	cursor: pointer;
+	border: 0;
+	line-height: 14px;
+}
+
+.logon-container {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 210px;
+	width: 300px;
+	position: absolute;
+	top: calc(50% - 130px);
+	left: calc(50% - 160px);
+}
+
+.input {
+	border: 1px solid #c0c0c0;
+	height: 32px;
+	margin: 5px;
+}
+
+.btnReset {	
+	background: rgba(33,33,33, 0.1);
+	transition: all 0.25s ease-out;
+	border-radius: 3px;
+	border: 0px;
+	height: 32px;
+}
+
+.btnReset:hover {	
+	background: rgba(33,33,33, 0.6);
+	color: white;
+}
+
+
+.btnLogon {	
+	background: rgba(5,103,174, 1);
+	transition: background 0.25s ease-out;
+	border-radius: 3px;
+	color: white;
+	border: 0;
+	cursor: pointer;
+	height: 32px;
+}
+
+.btnLogon:hover {	
+	background: rgba(5,103,174, 0.6);
+}
+
+.form-caption {
+    display: block;
+    background: #333;
+    height: 35px;
+    padding: 5px 10px 5px;
+    color: white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 20px;
+}
+
+.logon-controls {
+    left: calc(100% - 188px);
+    position: absolute;
+    width: 120px;
+    top: calc(100% - 40px);
+}
+
+.logon-container > table {
+	width: 100%;
+}
+
+div.logon-container > form > table.wwFormTable {
+	width: 100%;
+}
+
+div.logon-container > form > table.wwFormTable > tbody > tr > td.tdLabel {
+	width: 80px;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 15px 5px 5px 10px;
+    font-size: 15px;
+}
+
+div.logon-container > form > table.wwFormTable > tbody > tr > td.tdInput #lblLoginError {
+	color: red;
+    font-size: 12px;
+    position: relative;
+    bottom: 5px;
+    left: 7px;
+} 
+
+div.logon-container > form > table.wwFormTable > tbody > tr > td.tdErrorMessage > span.errorMessage {
+	color: red;
+    font-size: 12px;
+    position: absolute;
+    left: calc(25% + 37px);
+} 
+
+
+div.header-container {
+	background: #333;
+	color: white;
+	width: 100%;
+	display: flex;
+	height: 46px;
+}
+
+.header-container > .logo {
+	padding: 12px;
+}
+.header-container > .title {
+	align-items: flex-start;
+	font-size: 21px;
+	padding: 12px;
+	line-height: 21px;
+}
+
+.header-container > .settings-menu {
+	position: absolute;
+    right: 5px;
+    top: 12px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+div.content-container {
+	
+}
+
+span.delete-icon {
+	transition: opacity 0.25s ease-out;
+	color: red;	
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+span.delete-icon:hover {
+	transition: opacity 0.25s ease-out;
+	color: red;	
+	opacity: 1;
+}
+
+span.edit-icon {
+	transition: opacity 0.25s ease-out;
+	color: blue;	
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+span.edit-icon:hover {
+	transition: opacity 0.25s ease-out;
+	color: blue;	
+	opacity: 1;
+}
+
+.hide-action {
+	visibility: hidden;
+}
+
+.show-action {
+	visibility: visible;
+}
+
+
+.product-details {
+	border-radius: 4px;
+	background: #eee;	
+	transition: opacity 0.25s ease-out;
+	opacity: 0;
+}
+
+.product.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.product-active {
+	color: green;
+	opacity: 0.5;
+}
+
+.product-inactive {
+	color: red;
+	opacity: 0.5;
+}
+
+div.logon-container > form > table.wwFormTable > tbody > tr > td.tdLabel,
+div.product-details > form > table.wwFormTable > tbody > tr > td.tdLabel {
+	text-align: right;	
+}
+
+div.logon-container > form > table.wwFormTable > tbody > tr > td.tdLabel > .label,
+div.product-details > form > table.wwFormTable > tbody > tr > td.tdLabel > .label {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 5px;
+    font-size: 15px;
+    color: #333;
+}
+
+.product-controls {
+	position: relative;
+	left: 100px;
+	padding-bottom: 10px;
+}
+
+div.product-details > form > table.wwFormTable > tbody > tr > td.tdInput > .input {	
+	left: 0px;
+    position: relative;
+} 
+
+div.product-details > table {
+	width: 100%;
+}
+
+div.product-details > table > tbody > tr > td.product-label {
+	padding: 5px;
+	font-weight: bold;
+	text-align: right;
+	vertical-alight: top;
+}
+div.product-details > table > tbody > tr > td.product-input {
+	padding: 5px;	
+}
+
+div.product-details > table > tbody > tr > td > section > #lstRelatedTo,
+div.product-details > table > tbody > tr > td > section > #lstAvailableProducts {
+	width: 200px;
+	height: 100px;
+}
+
+.product-selection-container {
+	display: flex;
+	flex-direction: row;
+}
+.products-shifter {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	top: 12px;
+	position: relative;
+    
+}
+
+.products-shifter > button {
+	margin: 5px;
+	background: #d5d5d5;
+}
+
+.selected-row {
+	background: lightgreen;
+}
+
+.related-products-section {
+	display: flex;
+}
+
+.related-product {
+	border: 2px solid #d1d1d1;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	cursor: pointer;
+	background: white;
+	transition: all 0.25s ease-out;
+}
+
+.related-product:hover {
+	opacity: 0.6;
+}
+
+
+.related-products-section.row{
+	margin: 0;
+}
+
+.related-product > .product-image, 
+.related-product > .related-product-details {
+	margin: 3px;
+}
+
+.input-error {
+	border: 1px solid #f00;
+}
+
+.error-indicator {
+	color: red;
+}
+
+.product-save {
+	background: rgba(5,103,174, 1);
+	border: 0px;
+	color: white;
+	border-radius: 3px;
+	transition: all 0.25s ease-out;
+}
+
+.create-new,
+.product-reset {
+    background: #d5d5d5;
+    border: 0px;
+	border-radius: 3px;
+	transition: all 0.25s ease-out;
+}
+
+.product-save:hover {
+	opacity: 0.5;
+}
+
+.create-new:hover,
+.product-reset:hover {
+	background: rgba(33,33,33, 0.6);
+	color: white;
+}
