@@ -13,6 +13,7 @@ import org.att.pim.model.User;
 
 public class SecurityService {
 
+	private static SecurityService instance;
 	private static final Logger logger = Logger.getLogger(SecurityService.class);
 	
 	private List<User> users;
@@ -24,12 +25,17 @@ public class SecurityService {
 		this.users = users;
 	}
 	
-	public SecurityService() {
+	private SecurityService() {
 		logger.setLevel(Level.INFO);
 		this.users = new ArrayList<User>();
 		loadUsers();
 	}
 	
+	/*
+	 * Login method to validate the passed in credentails
+	 * Takes Logon object as an argument
+	 * Returns true on success
+	 */
 	public boolean doLogin(Logon logon) {		
 		logger.debug("Performing authetication");
 		boolean result = false;
@@ -53,6 +59,10 @@ public class SecurityService {
 		return result;
 	}
 
+	/*
+	 * Reads properties file and loads
+	 * user credentials to the list for further validation
+	 */
 	private void loadUsers() {
 		Properties prop = new Properties();
 		try {
@@ -66,4 +76,16 @@ public class SecurityService {
 			logger.error("Error occurred while reading user properties file", ex);
 		}
 	}	
+	
+	/*
+	 * Static getter method to implement Singleton patterns
+	 * to reduce creating too many instances
+	 */
+	public static SecurityService getInstance() {
+		if (instance == null) {
+			instance = new SecurityService();
+		}
+		
+		return instance;
+	}
 }

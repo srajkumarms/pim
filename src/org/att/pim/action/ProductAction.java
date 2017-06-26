@@ -72,6 +72,12 @@ public class ProductAction extends ActionSupport implements ModelDriven<List<Pro
 		products = new ArrayList<Product>();
 	}
 	
+	/*
+	 * To retrieve a list of available products
+	 * No instance member is used as input
+	 * Returns success on successful updation
+	 * or redirects to index page on failure
+	 */
 	public String getProductList() {
 		try {
 			if (validateSession()) {
@@ -90,6 +96,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<List<Pro
 		return LOGIN;
 	}
 	
+	/*
+	 * To add or edit a product
+	 * Instance member product of type ProductUI is used 
+	 * as input fron UI
+	 * Returns success on successful updation
+	 * or redirects to index page on failure 
+	 */
 	public String addEditProduct() {		
 		try {
 			isAddEditSucceed = false;
@@ -108,6 +121,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<List<Pro
 		return ERROR;
 	}
 	
+	/*
+	 * To delete a product
+	 * Instance member deleteProductId of type int is used 
+	 * as input fron UI
+	 * Returns success on successful deletion
+	 * or redirects to index page on failure 
+	 */
 	public String deleteProduct() throws Exception {
 		try {
 			if (validateSession()) {
@@ -130,7 +150,10 @@ public class ProductAction extends ActionSupport implements ModelDriven<List<Pro
 	public List<Product> getModel() {
 		return products;
 	}
-
+	
+	/*
+	 * Private method to validate session
+	 */
 	private boolean validateSession(){
 		HttpSession session=ServletActionContext.getRequest().getSession(false);
 		

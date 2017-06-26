@@ -30,10 +30,18 @@ public class ProductService {
 		this.products = products;
 	}	
 
+	/*
+	 * Returns list of products
+	 */
 	public List<Product> getProductList() {
 		return this.products;
 	}
 	
+	/*
+	 * Public method to call Add/Edit product
+	 * Calls add when product ID is less than 0
+	 * and edit when ID greater than 0.
+	 */
 	public boolean addEditProduct(ProductUI product) throws Exception {		
 		boolean result = false;		
 		try {
@@ -48,6 +56,11 @@ public class ProductService {
 		return result;
 	}
 	
+	/*
+	 * Maps the UI product object to the server object
+	 * Also adds the products to the relatedProduct list based on
+	 * the UI selection
+	 */
 	private Product mapUiProduct(ProductUI productUi) {
 		logger.debug("Mapping UI prodcut to ProductService product");
 		Product product = new Product();
@@ -74,6 +87,10 @@ public class ProductService {
 		return product;
 	}
 	
+	/*
+	 * Add product takes a product and appends to the list of product
+	 * Returns boolean of the action
+	 */
 	private boolean addProduct(Product product) throws Exception {
 		try {
 			logger.debug("Performing Add product");
@@ -88,6 +105,10 @@ public class ProductService {
 		return true;
 	}
 	
+	/*
+	 * Find the maximum of ID in the list
+	 * Returns int
+	 */
 	private int getMaxId() {
 		logger.debug("Entering to get max id");
 		int maxId = 0;
@@ -103,6 +124,11 @@ public class ProductService {
 		return maxId;
 	}
 	
+	/*
+	 * Edit product takes Product as an argument
+	 * and updates the list of products
+	 * Returns boolean of the action.
+	 */
 	public boolean editProduct(Product product) throws Exception {
 		logger.debug("Performing edit product");
 		try {
@@ -125,6 +151,10 @@ public class ProductService {
 		return true;
 	}
 	
+	/*
+	 * Delete product takes an ID of the product to be deleted.
+	 * Returns boolean of the action
+	 */
 	public boolean deleteProduct(int id) throws Exception {
 		logger.debug("Performing delete product");
 		try {
@@ -144,7 +174,11 @@ public class ProductService {
 		
 		return true;
 	}
-
+	
+	/*
+	 * Static getter method to implement Singleton patterns
+	 * to reduce creating too many instances
+	 */
 	public static ProductService getInstance() {
 		if (instance == null) {			
 			instance = new ProductService();

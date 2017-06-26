@@ -2,7 +2,6 @@ package org.att.pim.action;
 
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -37,11 +36,18 @@ public class SecurityAction extends ActionSupport implements ModelDriven<Logon>,
 		logger.setLevel(Level.INFO);
 	}
 
+	/*
+	 * Default action method for login
+	 * Returns success on successful login
+	 * or redirects to login page on failure.
+	 * Also creates session and add attributes for 
+	 * validation of subsequent calls. 
+	 */
 	public String execute() {
 		logger.debug("In SecurityAction to validate credentials");
-		SecurityService secService = new SecurityService();
 		
-		if (secService.doLogin(logon)) {
+		
+		if (SecurityService.getInstance().doLogin(logon)) {
 			setErrorMessage("");
 			sessionMap.put("login", true);
 			sessionMap.put("userId", logon.getUsername());
@@ -54,6 +60,10 @@ public class SecurityAction extends ActionSupport implements ModelDriven<Logon>,
 		}
 	}
 	
+	/*
+	 * Logout method clears the session and
+	 * redirects to index page.
+	 */
 	public String logout() {
 		logger.debug("Perform logout");
 		try {
